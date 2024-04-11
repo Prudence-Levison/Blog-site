@@ -4,7 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { BlogContext } from '../context/BlogContext';
 
 const Postpage = () => {
+	/* `const { createPost } = useContext(BlogContext);` is a line of code in a React functional component
+  that is using the `useContext` hook to access the `createPost` function from the `BlogContext`. */
 	const { createPost } = useContext(BlogContext);
+
+	/* `const navigate = useNavigate();` is a line of code in a React functional component that uses the
+  `useNavigate` hook from the `react-router-dom` library. This hook returns a navigate function that
+  can be used to programmatically navigate to different routes within a React application. In this
+  case, it is being used to navigate to the home page (`'/'`) after a new post is created and
+  submitted. */
 	const navigate = useNavigate();
 
 	const [title, setTitle] = useState('');

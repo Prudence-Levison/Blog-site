@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
+/* `export const BlogContext = createContext(null);` is creating a new context object in React using
+the `createContext` function provided by React. This context object will be used to share data
+between components without having to pass props manually at every level of the component tree. The
+initial value of the context is set to `null`, but it can be updated when the provider component
+wraps the component tree. */
 export const BlogContext = createContext(null);
 
 export const BlogProvider = ({ children }) => {
