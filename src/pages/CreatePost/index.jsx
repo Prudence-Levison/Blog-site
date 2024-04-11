@@ -1,12 +1,12 @@
-import Form from '../../Components/Form';
+import CreatePost from '../../Components/CreatePost';
 
-const CreatePost = () => {
+const CreatePostPage = () => {
 	return (
 		<>
 			<h1>Create Post</h1>
-			<Form />
+			<CreatePost />
 		</>
 	);
 };
 
-export default CreatePost;
+export default CreatePostPage;
