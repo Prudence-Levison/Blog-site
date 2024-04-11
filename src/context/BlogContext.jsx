@@ -26,9 +26,22 @@ export const BlogProvider = ({ children }) => {
 		}
 	};
 
+	const viewPost = async () => {
+		try {
+			const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${posts.id}`);
+			setPosts(response.data);
+		} catch(error ){
+			console.log(error)
+		}
+	};
+
 	useEffect(() => {
 		fetchPosts();
 	}, []);
+	useEffect(() => {
+		viewPost();
+	}, []);
 
-	return <BlogContext.Provider value={{ posts, createPost }}>{children}</BlogContext.Provider>;
+
+	return <BlogContext.Provider value={{ posts, createPost, viewPost }}>{children}</BlogContext.Provider>;
 };
