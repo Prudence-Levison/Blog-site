@@ -12,7 +12,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/create' element={<CreatePost />} />
-					<Route path='/view' element={<ViewPost />} />
+					<Route path='/post/:id' element={<ViewPost />} />
 				</Routes>
 			</BlogProvider>
 		</BrowserRouter>

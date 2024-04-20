@@ -10,6 +10,7 @@ export const BlogContext = createContext(null);
 
 export const BlogProvider = ({ children }) => {
 	const [posts, setPosts] = useState([]);
+	const [post, setPost] = useState({});
 
 	const fetchPosts = async () => {
 		const posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
@@ -26,22 +27,18 @@ export const BlogProvider = ({ children }) => {
 		}
 	};
 
-	const viewPost = async () => {
+	const viewPost = async (id) => {
 		try {
-			const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${posts.id}`);
-			setPosts(response.data);
-		} catch(error ){
-			console.log(error)
+			const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+			setPost(response.data);
+		} catch (error) {
+			console.log(error);
 		}
 	};
 
 	useEffect(() => {
 		fetchPosts();
 	}, []);
-	useEffect(() => {
-		viewPost();
-	}, []);
 
-
-	return <BlogContext.Provider value={{ posts, createPost, viewPost }}>{children}</BlogContext.Provider>;
+	return <BlogContext.Provider value={{ posts, post, createPost, viewPost }}>{children}</BlogContext.Provider>;
 };
